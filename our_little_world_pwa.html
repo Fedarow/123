@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="manifest" href="manifest.json">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Little World</title>
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #f9f9f9, #e0e0e0);
+            background-image: url('https://www.transparenttextures.com/patterns/linen.png');
+            color: #333;
+        }
+        header {
+            background: linear-gradient(135deg, #003300, #005500);
+            color: #fff;
+            text-align: center;
+            padding: 60px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            border-bottom: 4px solid #004d00;
+        }
+        header h1 {
+            font-size: 2.8em;
+            margin: 0;
+            animation: fadeInDown 1.5s;
+            font-family: 'Georgia', serif;
+            letter-spacing: 2px;
+        }
+        nav {
+            background-color: #004d00;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-bottom: 2px solid #003300;
+        }
+        nav a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+        nav a:hover {
+            color: #a3ffb5;
+            text-shadow: 0 0 5px #a3ffb5;
+        }
+        .container {
+            margin: 40px auto;
+            padding: 20px;
+            max-width: 1000px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1.5s;
+            border: 2px solid #e6e6e6;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            color: #004d00;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #004d00;
+            display: inline-block;
+            padding-bottom: 8px;
+            font-family: 'Georgia', serif;
+        }
+        .button {
+            padding: 10px 20px;
+            background: #004d00;
+            color: white;
+            font-size: 1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .button:hover {
+            transform: scale(1.1);
+            background-color: #003300;
+        }
+        .widget, .daily-quote, .personal-notes {
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        .widget h3, .daily-quote h3, .personal-notes h3 {
+            color: #004d00;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+        .personal-notes textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+            padding: 0;
+            list-style: none;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 20px;
+            width: 4px;
+            background: #004d00;
+        }
+        .timeline-item {
+            position: relative;
+            margin: 20px 0;
+            padding-left: 50px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #004d00;
+            box-shadow: 0 0 0 4px #fff;
+        }
+        .timeline-item h3 {
+            margin: 0 0 5px;
+            font-size: 1.4em;
+            color: #004d00;
+        }
+        .timeline-item p {
+            margin: 0;
+            font-size: 1.1em;
+        }
+        .photo-wall {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .photo-wall img {
+            width: 300px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .photo-wall img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        footer {
+            background: #004d00;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 15px 15px 0 0;
+        }
+        footer p {
+            margin: 0;
+            font-size: 1em;
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Little World</h1>
+    </header>
+    <nav>
+        <a href="#about-us">About Us</a>
+        <a href="#our-story">Our Story</a>
+        <a href="#travel-memories">Travel Memories</a>
+        <a href="#daily-widgets">Daily Widgets</a>
+    </nav>
+    <div class="container">
+        <div id="about-us" class="section">
+            <h2>About Us</h2>
+            <p>我们喜欢一起做很多简单又温暖的小事。散步时聊着天，分享彼此喜欢的音乐和书，看着风吹过树叶的样子，觉得世界都安静了。</p>
+            <p>我们也喜欢计划旅行，哪怕只是看地图也能聊上一整天。记得有一次，我们谈到山野间的日出，你说，‘要是能和你站在最高的山顶看第一缕阳光，那肯定会很浪漫。’当时我就想着，无论哪里，只要有你在，就是最美的地方。</p>
+        </div>
+        <div id="our-story" class="section">
+            <h2>Our Story</h2>
+            <ul class="timeline">
+                <li class="timeline-item">
+                    <h3>2023 年夏天</h3>
+                    <p>我们第一次见面，你的笑容像阳光一样温暖。</p>
+                </li>
+                <li class="timeline-item">
+                    <h3>2023 年秋天</h3>
+                    <p>我们一起去看落叶，谈天说地，觉得秋天格外浪漫。</p>
+                </li>
+                <li class="timeline-item">
+                    <h3>2024 年冬天</h3>
+                    <p>我们计划了未来的旅行，并为彼此写下了新年的愿望。</p>
+                </li>
+                <li class="timeline-item">
+                    <h3>2025 年春天</h3>
+                    <p>我们的专属网页上线，记录了我们一路走来的点滴回忆。</p>
+                </li>
+            </ul>
+        </div>
+        <div id="daily-widgets" class="section">
+            <h2>Daily Widgets</h2>
+            <div class="widget">
+                <h3>Weather Widget</h3>
+                <p>今天的天气是晴天，气温 20°C，适合散步和享受阳光。</p>
+            </div>
+            <div class="daily-quote">
+                <h3>Daily Quote</h3>
+                <p>"生活就像骑自行车。要保持平衡，你必须不断前行。" - 爱因斯坦</p>
+            </div>
+            <div class="personal-notes">
+                <h3>Your Personal Notes</h3>
+                <textarea placeholder="写下你的计划或愿望..."></textarea>
+            </div>
+        </div>
+        <div id="travel-memories" class="section photo-wall">
+            <h2>Travel Memories</h2>
+            <img src="https://via.placeholder.com/300" alt="Mountain Lake">
+            <img src="https://via.placeholder.com/300" alt="Beach and Tree">
+            <img src="https://via.placeholder.com/300" alt="Seaside Walk">
+        </div>
+    </div>
+    <footer>
+        <p>Made with ❤️ by Us</p>
+    </footer>
+
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+        .then(function() { console.log('Service Worker Registered'); });
+    }
+</script>
+
+</body>
+</html>
